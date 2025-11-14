@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Special Song</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #faf6ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+    }
+    h2 {
+      color: #6a4bc3;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Listen to this sowmya</h2>
+
+  <audio id="player" controls>
+    <source src="D:\downloads\03_-_Vaalu_Kalla_Vayyari - SenSongsMp3.co.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    const player = document.getElementById("player");
+    const startTime = 150;  // 02:30
+    const endTime = 180;    // 03:00
+
+    player.addEventListener("loadedmetadata", () => {
+      player.currentTime = startTime;
+      player.play();
+    });
+
+    player.addEventListener("timeupdate", () => {
+      if (player.currentTime >= endTime) {
+        player.pause();
+      }
+    });
+  </script>
+
+</body>
+</html>
